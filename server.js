@@ -4,10 +4,12 @@ const cors = require("cors");
 
 const app = express();
 const port = process.env.PORT;
+const httpServer = require("http").createServer(app);
+require("socket.io")(httpServer);
 
 app.use(express.static("public"));
 app.use(cors());
 
-app.listen(port, () =>
+httpServer.listen(port, () =>
   console.log(`Server running on http://localhost:${port}`)
 );
