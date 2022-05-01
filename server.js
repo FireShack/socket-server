@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const mainController = require("./socket-controller/sockets.controller");
 
 const app = express();
 const port = process.env.PORT;
@@ -10,15 +11,7 @@ const io = require("socket.io")(httpServer);
 app.use(express.static("public"));
 app.use(cors());
 
-io.on("connection", (socket) => {
-  console.log("Client connected");
-  socket.on("disconnect", () => {
-    console.log("Client disconnected");
-  });
-  socket.on("send-msg", (payload) => {
-      console.log(payload)
-  })
-});
+io.on("connection", mainController);
 httpServer.listen(port, () =>
   console.log(`Server running on http://localhost:${port}`)
 );

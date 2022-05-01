@@ -30,15 +30,26 @@
     </div>
 
     <form>
-      <div class="">
-        <input type="text" class="form-control" id="input-message" />
+      <div class="d-flex justify-content-center">
+        <input type="text" class="form-control w-50" id="input-message" />
       </div>
       <div class="d-flex justify-content-center">
         <button
           type="submit"
           class="btn btn-outline-primary mt-2"
           id="send-message"
-        > Send Message </button>
+        >
+          Send Message
+        </button>
+      </div>
+      <div class="text-muted text-center mt-2">Users <span id="user-response"></span> says </div>
+      <div class="d-flex justify-content-center mt-3">
+        <input
+          type="text"
+          class="form-control w-50"
+          id="input-message-server"
+          disabled
+        />
       </div>
     </form>
 
